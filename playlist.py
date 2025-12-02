@@ -32,6 +32,7 @@ def search_by_artist(artist_name):
     
     if not found:
         print("Không tìm thấy bài hát nào của ca sĩ này.")
+
 def view_playlist():
     """In ra toàn bộ playlist"""
     if not songs:
@@ -41,6 +42,21 @@ def view_playlist():
     print("\n--- DANH SÁCH PHÁT ---")
     for i, song in enumerate(songs, start=1):
         print(f"{i}. {song['title']} - {song['artist']} ({song['duration']}s)")
+
+def search_by_artist(artist_name):
+    """Tìm bài hát theo tên ca sĩ"""
+    found = False
+    print("\n--- KẾT QUẢ TÌM KIẾM ---")
+    
+    for song in songs:
+        # So sánh không phân biệt hoa thường
+        if artist_name.lower() in song["artist"].lower():
+            print(f"- {song['title']} ({song['duration']}s)")
+            found = True
+    
+    if not found:
+        print("Không tìm thấy bài hát nào của ca sĩ này.")
+
 
 def main():
     while True:

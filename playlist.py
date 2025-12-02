@@ -32,6 +32,15 @@ def search_by_artist(artist_name):
     
     if not found:
         print("Không tìm thấy bài hát nào của ca sĩ này.")
+def view_playlist():
+    """In ra toàn bộ playlist"""
+    if not songs:
+        print("Playlist trống.")
+        return
+    
+    print("\n--- DANH SÁCH PHÁT ---")
+    for i, song in enumerate(songs, start=1):
+        print(f"{i}. {song['title']} - {song['artist']} ({song['duration']}s)")
 
 def main():
     while True:
